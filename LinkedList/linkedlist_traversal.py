@@ -9,7 +9,7 @@ class LinkedList:
 
     def printlinkedlist(self):
         node=self.a
-        while node!=None:
+        while node!=None:  #Traversing the LinkedList
             print(node.data)
             node=node.next
 
