@@ -6,7 +6,8 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.a = None
-
+        
+    #Searching for a node in the LinkedList
     def searchnode(self, searchnode):
         node=self.a
         position=1
