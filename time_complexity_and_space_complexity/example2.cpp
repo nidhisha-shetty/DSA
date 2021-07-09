@@ -4,4 +4,4 @@ while (i > 0) {
     i /= 2;
 }
 
-#Time complexity -> O(logn)
+//Time complexity -> O(logn)
