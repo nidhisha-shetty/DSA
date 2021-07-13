@@ -24,7 +24,16 @@ class LinkedList:
             else:
                 arr_odd.append(node)
         arr_even.extend(arr_odd)
-        print(arr_even)
+        
+        #returns result in array
+        print(arr_even)#returns result in array
+        
+        #returns result in linkedlist
+        newlist=Node(0)
+        for node in arr_even:      
+            newlist.next=Node(node)
+            newlist=newlist.next
+            print(newlist.data)
 
 ll=LinkedList()
 ll.a=Node(8)
