@@ -1,3 +1,53 @@
+#using linkedlist
+class Node:
+    def __init__(self, data):
+        self.data=data
+        self.next=None
+
+class LinkedList:
+    def __init__(self):
+        self.a=None
+    
+    def traverse(self):
+        odd_test=odd=Node(0)  
+        even_test=even=Node(0)
+        temp=Node(0)
+        temp=self.a
+        while temp!=None:
+            if temp.data%2==0:
+                even.next=Node(temp.data)
+                even=even.next
+                temp=temp.next
+            else:
+                odd.next=Node(temp.data)
+                odd=odd.next
+                temp=temp.next
+        
+        while even_test.next!=None:
+            print(even_test.next.data)
+            even_test=even_test.next
+        while odd_test.next!=None:
+            print(odd_test.next.data)
+            odd_test=odd_test.next
+
+ll=LinkedList()
+ll.a=Node(8)
+ll.b=Node(12)
+ll.c=Node(10)
+ll.d=Node(5)
+ll.e=Node(4)
+ll.f=Node(1)
+ll.g=Node(6)
+
+ll.a.next=ll.b
+ll.b.next=ll.c
+ll.c.next=ll.d
+ll.d.next=ll.e
+ll.e.next=ll.f
+ll.f.next=ll.g
+
+ll.traverse()
+
 #using array
 class Node:
     def __init__(self, data):
