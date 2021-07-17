@@ -1,3 +1,4 @@
+#P.S: Write a function that counts the number of times a given int occurs in a Linked List
 class Node:
     def __init__(self, data):
         self.data=data
