@@ -1,3 +1,6 @@
+'''
+P.S: Write a function to get Nth node in a Linked List using iterative and recursive methods
+'''
 #iterative way
 class Node:
     def __init__(self, data):
@@ -34,7 +37,6 @@ ll.d.next=ll.e
 
 print(ll.get_node_data(0))
 
-
 #recursive way
 class Node:
     def __init__(self, data):
@@ -47,7 +49,6 @@ class LinkedList:
         self.count=0 
         
     def get_node_data(self, index):
-        
         while self.a!=None:
             if self.count==index:
                 return self.a.data
@@ -70,5 +71,3 @@ ll.c.next=ll.d
 ll.d.next=ll.e 
 
 print(ll.get_node_data(3))
-
-
