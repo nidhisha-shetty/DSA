@@ -11,22 +11,19 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.a=None
-
-    def hasCycle(self):
-        count=0
+        
+    def traverse(self):
         head=self.a
-        fast=slow=head
-        if head==None:
-            return False
-        if head.next==None:
-            return False
-        while fast.next!=None and fast.next.next!=None:
-            fast=fast.next.next
-            slow=slow.next
+        temp=head
+        count=0
+        a=None
+        while temp!=a:
+            print(temp.data)
+            temp=temp.next
             count+=1
-            if fast==slow:
-                print(count)
-                break
+            a=head
+        return count
+        
         
 ll=LinkedList()
 
@@ -46,4 +43,4 @@ ll.e.next=ll.f  #making linkedlist circular
 ll.f.next=ll.g
 ll.g.next=ll.a
 
-ll.hasCycle()
+ll.traverse()
