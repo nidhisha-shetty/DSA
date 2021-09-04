@@ -39,8 +39,8 @@ ll.a.next=ll.b
 ll.b.next=ll.c
 ll.c.next=ll.d 
 ll.d.next=ll.e
-ll.e.next=ll.f  #making linkedlist circular
+ll.e.next=ll.f  
 ll.f.next=ll.g
-ll.g.next=ll.a
+ll.g.next=ll.a  #making linkedlist circular
 
 ll.traverse()
