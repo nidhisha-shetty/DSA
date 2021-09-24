@@ -16,12 +16,9 @@ class Linkedlist:
     def delete_start_node(self, del_data):
         del_node=Node(del_data)
         temp=self.head
-        while temp!=None:
-            if self.head.data==del_node.data:
-                self.head=temp.next
-                temp.next.prev=None
-                break
-        # return self.head
+        if self.head.data==del_node.data:
+            self.head=temp.next
+            temp.next.prev=None
 
 ll=Linkedlist()
 ll.head=Node(1)
