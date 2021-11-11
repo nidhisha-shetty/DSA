@@ -30,6 +30,5 @@ ll.b.next=ll.c
 ll.c.next=ll.d 
 ll.d.next=ll.e
 
-# ll.traverse()
 ll.update(5,7)
 ll.traverse()
