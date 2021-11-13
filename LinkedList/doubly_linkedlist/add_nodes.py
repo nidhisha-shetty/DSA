@@ -14,8 +14,8 @@ class Linkedlist:
             temp=temp.next
     '''
     Add start node
-    #2->4
-    #1->2->4
+    #1->2->3
+    #0->1->2->3
     '''
     def add_start_node(self, data):
         new_node=Node(data)
@@ -25,8 +25,8 @@ class Linkedlist:
         self.head=new_node
     '''
     Add a node after a given node
-    #1->2->4
-    #1->2->3->4
+    #1->2->3
+    #1->2->4->3
     '''
     def insertAfter(self, cur_data, next_data):
         temp=self.head 
@@ -40,8 +40,8 @@ class Linkedlist:
         after_node.prev=temp
     '''
     Add a node before a given node
-    #1->2->3->4
-    #1->2->5->3->4
+    #1->2->4->3
+    #1->6->2->4->3
     '''
     def insertBefore(self, cur_data, before_data):
         temp=self.head 
@@ -54,8 +54,8 @@ class Linkedlist:
         before_node.prev=temp  
     '''
     Add node at end
-    #1->2->5->3->4
-    #1->2->5->3->4->10
+    #1->6->2->4->3
+    #1->6->2->4->3->10
     '''
     def end_node(self, end_data):
         temp=self.head 
