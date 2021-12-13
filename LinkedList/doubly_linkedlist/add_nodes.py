@@ -104,6 +104,19 @@ class Linkedlist:
           self.tail = new_node
           new_node.prev = None # There's only one element so both pointers refer to null
         
+    def insertAfter(self, prev_node, new_data):    # [12, 8, 2, 5] -> [12, 8, 2, 4, 5]
+        node = self.head
+        while node and node.data != prev_node:
+            node = node.next
+
+        if node:
+            new_node = Node(new_data)    
+            node_next = node.next
+            node.next = new_node 
+            new_node.prev=node   
+            new_node.next = node_next
+            node_next.prev = new_node
+        
     def __node_iter(self):
         node = self.head
         while node:
