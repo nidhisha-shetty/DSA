@@ -27,3 +27,7 @@ class TestLinkedlist:
 
         linked_list.add_start_node(4)
         assert list(linked_list) == [4, 5, 3, 1]
+        
+    def test_insertAfter(self):
+        self.prepared_linked_list.insertAfter(2, 4)
+        assert list(self.prepared_linked_list) == [12, 8, 2, 4, 5]
