@@ -116,6 +116,19 @@ class Linkedlist:
             new_node.prev=node   
             new_node.next = node_next
             node_next.prev = new_node
+            
+    def insertBefore(self, next_node, new_data):    # [12, 8, 2, 5] -> [12, 8, 2, 4, 5]
+        node = self.head
+        while node.next and node.next.data != next_node:
+            node = node.next
+            print(node.data)
+        if node:
+            new_node = Node(new_data)
+            next_node=node.next
+            new_node.next=node.next
+            new_node.prev=node
+            next_node.prev=new_node
+            node.next=new_node
         
     def __node_iter(self):
         node = self.head
