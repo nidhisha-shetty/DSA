@@ -31,3 +31,7 @@ class TestLinkedlist:
     def test_insertAfter(self):
         self.prepared_linked_list.insertAfter(2, 4)
         assert list(self.prepared_linked_list) == [12, 8, 2, 4, 5]
+    
+    def test_insertBefore(self):
+        self.prepared_linked_list.insertBefore(5, 4)
+        assert list(self.prepared_linked_list) == [12, 8, 2, 4, 5]
