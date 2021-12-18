@@ -129,6 +129,13 @@ class Linkedlist:
             new_node.prev=node
             next_node.prev=new_node
             node.next=new_node
+            
+    def insertLast(self, last_node):
+        new_node = Node(last_node)
+        node = self.head
+        while node.next!=None:
+            node=node.next
+        node.next=new_node 
         
     def __node_iter(self):
         node = self.head
