@@ -137,7 +137,7 @@ class Linkedlist:
             node=node.next
         node.next=new_node 
         
-    def __node_iter(self):
+    def node_iter(self):
         node = self.head
         while node:
             yield node
@@ -146,4 +146,4 @@ class Linkedlist:
 
     def __iter__(self):
         """:returns values iterator"""
-        return iter(map(lambda node: node.data, self.__node_iter()))
+        return iter(map(lambda node: node.data, self.node_iter()))
