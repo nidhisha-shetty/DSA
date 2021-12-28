@@ -80,17 +80,10 @@ class Linkedlist:
           new_node.prev = None # There's only one element so both pointers refer to null
 
     def update_node(self, old_data, new_data):
-        # old_data=Node(old_data)
-        new_data=Node(new_data)
         node = self.head
         while node.data != old_data:
-            print(node.data)
             node=node.next
-        
-        if node.data == old_data:
-            next_node=node.next
-            node=new_data
-            node.next=next_node
+        node.data=new_data
             
     def node_iter(self):
         node = self.head
