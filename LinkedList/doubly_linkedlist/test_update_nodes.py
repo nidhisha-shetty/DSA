@@ -17,3 +17,11 @@ class TestLinkedlist:
     def test_update_node(self):
         self.prepared_linked_list.update_node(8, 7)
         assert list(self.prepared_linked_list) == [12, 7, 2, 5]
+        
+    def test_update_first_node(self):
+        self.prepared_linked_list.update_first_node(0)
+        assert list(self.prepared_linked_list) == [0, 8, 2, 5]
+
+    def test_update_last_node(self):
+        self.prepared_linked_list.update_last_node(9)
+        assert list(self.prepared_linked_list) == [12, 8, 2, 9]
