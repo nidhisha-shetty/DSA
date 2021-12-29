@@ -1,3 +1,77 @@
+# class Node:
+#     def __init__(self,data):
+#         self.next=None 
+#         self.prev=None
+#         self.data=data 
+
+# class Linkedlist:
+#     def __init__(self):
+#         self.head=None
+
+#     def traverse(self):
+#         temp=self.head 
+#         prev=self.head
+#         while temp!=None:
+#             # print("prev node"+str(prev.data))
+#             print("node: "+str(temp.data))
+#             prev=temp
+#             temp=temp.next
+            
+#     def delete_start_node(self):
+#         temp=self.head
+#         self.head=temp.next
+#         temp.next.prev=None
+    
+#     def delete_before_node(self,data):
+#         temp=self.head 
+#         prev=self.head
+#         while temp.next.data!=data:
+#             prev=temp
+#             temp=temp.next
+#         prev.next=temp.next
+#         temp.next.prev=prev 
+
+#     def delete_after_node(self,data):
+#         temp=self.head 
+#         # prev=self.head
+#         while temp.data!=data:
+#             # prev=temp
+#             temp=temp.next
+#         temp.next=temp.next.next
+        
+#     def delete_end_node(self):
+#         temp=self.head
+#         while temp.next.next!=None:
+#             # print(temp.next.data)
+#             temp=temp.next
+#         # print(temp.data)    
+#         temp.next=None
+#         # print(temp)
+
+# ll=Linkedlist()
+# ll.head=Node(1)
+# ll.b=Node(2)
+# ll.c=Node(3) 
+# ll.d=Node(4)
+# ll.e=Node(5)
+# ll.f=Node(6)
+# ll.g=Node(7)
+
+# ll.head.next=ll.b 
+# ll.b.next=ll.c 
+# ll.c.next=ll.d
+# ll.d.next=ll.e
+# ll.e.next=ll.f 
+# ll.f.next=ll.g 
+
+# ll.delete_start_node()
+# ll.delete_before_node(5)
+# ll.delete_after_node(2)
+# ll.delete_end_node()
+# ll.traverse()
+
+
+
 class Node:
     def __init__(self,data):
         self.next=None 
@@ -6,66 +80,46 @@ class Node:
 
 class Linkedlist:
     def __init__(self):
-        self.head=None
+        self.head=None 
 
-    def traverse(self):
-        temp=self.head 
-        prev=self.head
-        while temp!=None:
-            # print("prev node"+str(prev.data))
-            print("node: "+str(temp.data))
-            prev=temp
-            temp=temp.next
+    def add_start_node(self, data):
+        new_node=Node(data)
+        if self.head != None: 
             
-    def delete_start_node(self):
-        temp=self.head
-        self.head=temp.next
-        temp.next.prev=None
-    
-    def delete_before_node(self,data):
-        temp=self.head 
-        prev=self.head
-        while temp.next.data!=data:
-            prev=temp
-            temp=temp.next
-        prev.next=temp.next
-        temp.next.prev=prev 
-
-    def delete_after_node(self,data):
-        temp=self.head 
-        # prev=self.head
-        while temp.data!=data:
-            # prev=temp
-            temp=temp.next
-        temp.next=temp.next.next
+            new_node.next=self.head
+            new_node.prev=None
+            self.head.prev=new_node
+            self.head=new_node
         
-    def delete_end_node(self):
-        temp=self.head
-        while temp.next.next!=None:
-            # print(temp.next.data)
-            temp=temp.next
-        # print(temp.data)    
-        temp.next=None
-        # print(temp)
+        else: # If the list is empty, make new node both head and tail
+            self.head = new_node
+            self.tail = new_node
+            new_node.prev = None # There's only one element so both pointers refer to null
 
-ll=Linkedlist()
-ll.head=Node(1)
-ll.b=Node(2)
-ll.c=Node(3) 
-ll.d=Node(4)
-ll.e=Node(5)
-ll.f=Node(6)
-ll.g=Node(7)
 
-ll.head.next=ll.b 
-ll.b.next=ll.c 
-ll.c.next=ll.d
-ll.d.next=ll.e
-ll.e.next=ll.f 
-ll.f.next=ll.g 
+    def delete_node(self, old_data):
+        node = self.head
+        while node.next.data != old_data:
+            node = node.next
+        next_node = node.next.next
+        node.next = next_node
+    
+    def delete_first_node(self):        
+        self.head = self.head.next
 
-ll.delete_start_node()
-ll.delete_before_node(5)
-ll.delete_after_node(2)
-ll.delete_end_node()
-ll.traverse()
+    def delete_last_node(self):        
+        node = self.head
+        while node.next.next != None:
+            node = node.next
+        node.next = None
+        
+    def node_iter(self):
+        node = self.head
+        while node:
+            yield node
+            print("nodes", node.data)
+            node = node.next
+
+    def __iter__(self):
+        """:returns values iterator"""
+        return iter(map(lambda node: node.data, self.node_iter()))
