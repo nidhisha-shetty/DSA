@@ -20,6 +20,7 @@ class Linkedlist:
             self.head = new_node
             self.tail = new_node
             new_node.prev = None # There's only one element so both pointers refer to null
+            new_node.next = None
 
     def delete_node(self, old_data):
         node = self.head
