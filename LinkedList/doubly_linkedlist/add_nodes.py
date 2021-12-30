@@ -11,22 +11,21 @@ class Linkedlist:
     def add_start_node(self, data):
         new_node=Node(data)
         if self.head != None: 
-            
             new_node.next=self.head
             new_node.prev=None
             self.head.prev=new_node
             self.head=new_node
         
         else: # If the list is empty, make new node both head and tail
-          self.head = new_node
-          self.tail = new_node
-          new_node.prev = None # There's only one element so both pointers refer to null
-        
+            self.head = new_node
+            self.tail = new_node
+            new_node.prev = None # There's only one element so both pointers refer to null
+            new_node.next = None
+            
     def insertAfter(self, prev_node, new_data):    # [12, 8, 2, 5] -> [12, 8, 2, 4, 5]
         node = self.head
         while node and node.data != prev_node:
             node = node.next
-
         if node:
             new_node = Node(new_data)    
             node_next = node.next
@@ -39,7 +38,6 @@ class Linkedlist:
         node = self.head
         while node.next and node.next.data != next_node:
             node = node.next
-            print(node.data)
         if node:
             new_node = Node(new_data)
             next_node=node.next
@@ -59,7 +57,6 @@ class Linkedlist:
         node = self.head
         while node:
             yield node
-            print("nodes", node)
             node = node.next
 
     def __iter__(self):
